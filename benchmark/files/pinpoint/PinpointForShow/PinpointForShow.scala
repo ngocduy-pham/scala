@@ -14,7 +14,7 @@ class PinpointForShow extends scala.tools.sbs.pinpoint.PinpointBenchmarkTemplate
 
   override val pinpointDepth = 2
 
-  override val pinpointPrevious = Directory("D:/University/5thYear/Internship/Working/scala/benchmark/files/bin/pinpointprevious")
+  override val pinpointPrevious = Directory("benchmark/files/bin/pinpointprevious")
 
   // force object construction
   val failure = ListBuffer_size
