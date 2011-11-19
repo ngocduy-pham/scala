@@ -18,13 +18,18 @@ class ImmutableHashSetAdding extends scala.tools.sbs.performance.PerformanceBenc
 
   var set = collection.immutable.HashSet[Int]()
 
-  def init() = set ++= (1 to 1000000).toList
+  def init() = set = collection.immutable.HashSet[Int]((1 to 1000000): _*)
 
   def run() {
-    var i: List[collection.immutable.HashSet[Int]] = Nil
-    for (_ <- 1 to 2000000) i ::= (set ++ Nil)
+    var ls: List[collection.immutable.HashSet[Int]] = Nil
+    var i = 0
+    while (i < 5500000) {
+      ls ::= (set ++ Nil)
+      i += 1
+    }
+    ls foreach (_ => ())
   }
 
-  def reset() = set = collection.immutable.HashSet[Int]()
+  def reset() = ()
 
 }
