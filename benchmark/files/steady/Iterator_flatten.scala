@@ -1,4 +1,4 @@
-/** scala/trunk/src/library/scala/collection/TraversableOnce.scala
+/** library/scala/collection/TraversableOnce.scala
  *  Bug
  *  {{{
  *  def flatten: Iterator[A] = travs.foldLeft(Iterator.empty: Iterator[A])(_ ++ _)
@@ -14,7 +14,7 @@
  *  }
  *  }}}
  */
-object IteratorFlatten {
+object Iterator_flatten {
 
   def gen(depth: Int, span: Int): Iterator[Int] = {
     if (depth == 0) {
@@ -26,7 +26,7 @@ object IteratorFlatten {
   }
 
   def main(args: Array[String]) {
-    val ls = for(_ <- 1 to 100) yield gen(1, 679).length
+    val ls = for(_ <- 1 to 30) yield gen(1, 679).length
     ls foreach (_ => ())
   }
 

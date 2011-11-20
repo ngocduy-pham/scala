@@ -1,4 +1,4 @@
-/** scala/trunk/src/library/scala/collection/mutable/ListBuffer.scala
+/** library/scala/collection/mutable/ListBuffer.scala
  *  Bug:
  *  {{{
  *  // Nothing
