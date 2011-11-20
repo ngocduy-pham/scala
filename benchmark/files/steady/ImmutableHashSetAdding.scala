@@ -12,24 +12,20 @@
  */
 class ImmutableHashSetAdding extends scala.tools.sbs.performance.PerformanceBenchmarkTemplate {
 
-  override val measurement = 11
+  override val measurement = 17
+  override val timeout = 60 * 1000
 
-  override val timeout = 180000
+  val set = for (_ <- 1 to 100000) yield (collection.immutable.HashSet((0 to 1): _*))
+  var ls = collection.immutable.IndexedSeq[AnyRef]()
 
-  var set = collection.immutable.HashSet[Int]()
-
-  def init() = set = collection.immutable.HashSet[Int]((1 to 1000000): _*)
-
+  def init() = ls = collection.immutable.IndexedSeq[AnyRef]()
   def run() {
-    var ls: List[collection.immutable.HashSet[Int]] = Nil
     var i = 0
-    while (i < 5500000) {
-      ls ::= (set ++ Nil)
+    while (i < 23) {
+      ls ++= set map (_ ++ Nil)
       i += 1
     }
-    ls foreach (_ => ())
   }
-
   def reset() = ()
 
 }
