@@ -1,4 +1,5 @@
-/** scala/trunk/src/library/scala/collection/SetLike.scala
+/** SI-4642
+ *  scala/trunk/src/library/scala/collection/SetLike.scala
  *  Bug:
  *  {{{
  *  def ++ (elems: GenTraversableOnce[A]): This = newBuilder ++= seq ++= elems.seq result

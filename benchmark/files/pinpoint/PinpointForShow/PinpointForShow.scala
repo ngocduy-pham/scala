@@ -18,7 +18,7 @@ class PinpointForShow extends scala.tools.sbs.pinpoint.PinpointBenchmarkTemplate
 
   // force object construction
   val failure = ListBuffer_size
-  val ok = TraversableOnce_toArray
+  val ok = Iterator_flatten
 
   def init() = ()
   def run() = {
