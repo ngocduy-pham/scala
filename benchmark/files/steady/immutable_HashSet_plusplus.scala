@@ -14,16 +14,15 @@
 class immutable_HashSet_plusplus extends scala.tools.sbs.performance.PerformanceBenchmarkTemplate {
 
   override val measurement = 17
-  override val timeout = 30 * 1000
 
-  val set = for (_ <- 1 to 100000) yield (collection.immutable.HashSet((0 to -1): _*)) // empty set to narrow the difference
-  var ls = collection.immutable.IndexedSeq[AnyRef]()
+  val set = for (_ <- 1 to 100000) yield collection.immutable.HashSet() // empty set to narrow the difference
+  var ls = collection.immutable.IndexedSeq[Int]()
 
-  def init() = ls = collection.immutable.IndexedSeq[AnyRef]()
+  def init() = ls = collection.immutable.IndexedSeq[Int]()
   def run() {
     var i = 0
-    while (i < 23) {
-      ls ++= set map (_ ++ Nil)
+    while (i < 230) {
+      ls :+= (set map (_ ++ Nil)).length
       i += 1
     }
   }

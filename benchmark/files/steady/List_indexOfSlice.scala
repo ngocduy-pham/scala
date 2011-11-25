@@ -9,7 +9,7 @@ object List_indexOfSlice {
   var i = collection.mutable.ArrayBuffer[Int]()
 
   def main(args: Array[String]) {
-    for (_ <- 1 to 10) i :+= (ls indexOfSlice seq)
+    for (_ <- 1 to 80) i :+= (ls indexOfSlice seq)
     i.clear
   }
 
